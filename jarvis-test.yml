@@ -19,3 +19,12 @@ assessments:
         ref: p://this/transformations/checkout/workspace
     parameters:
       workspace: "@repo"
+
+qualityGates:
+  - strategy: auto
+    policies:
+      - name: PassedTestRate
+        interpretation: threshold-
+        actualValue: passedRate
+        setPoint: 1
+        assessmentRef: p://this/assessments/testing
