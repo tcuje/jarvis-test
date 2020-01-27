@@ -2,8 +2,7 @@ stages:
   - name: build
     transformations:
       - checkout
-    assessments:
-      - testing
+      - compile
 
 transformations:
   - name: checkout
@@ -11,6 +10,15 @@ transformations:
     command: checkout
     parameters:
       repositoryUri: https://github.com/tcuje/jarvis-test.git
+
+- name: compile
+    service: maven-service
+    command: compile
+    dependsOn:
+      - alias: repo
+        ref: p://this/transformations/checkout/workspace
+    parameters:
+      workspace: "@repo"
 
 assessments:
   - name: testing
