@@ -12,7 +12,7 @@ transformations:
       repositoryUri: https://github.com/tcuje/jarvis-test.git
   - name: test
     service: maven-service
-    command: test
+    command: compile
     dependsOn:
       - alias: repo
         ref: p://this/transformations/checkout/workspace
