@@ -2,7 +2,7 @@ stages:
   - name: build
     transformations:
       - checkout
-      - test
+      - compile
 
 transformations:
   - name: checkout
@@ -10,7 +10,7 @@ transformations:
     command: checkout
     parameters:
       repositoryUri: https://github.com/tcuje/jarvis-test.git
-  - name: test
+  - name: compile
     service: maven-service
     command: compile
     dependsOn:
